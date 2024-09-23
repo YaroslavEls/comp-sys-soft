@@ -1,0 +1,5 @@
+python main.py '-a-b*(k-t)-(f-g)*(f-5.9-q)-(f*g)/(d+q-w)'
+python main.py '-a-b*(k-t)-(f-g)*(f-5.9-q)-(f*g)/(d+q-w'
+python main.py '-a-2b*(k-t)-(f-g)*(f-5.9-q)-(f*g)/(d+q-w)'
+python main.py '-a-2*(k-t)-(f-g)*(f-5.9-q)-(f*g)/(d+q-w)+'
+python main.py '-a-2*(k-t)-(f-g)*(f-5.9-q)-(f*g)/(d+q-w)+3'
