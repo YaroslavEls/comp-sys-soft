@@ -33,12 +33,22 @@ def check_ending(tokens, errors):
     return errors
 
 def check_parentheses(tokens, errors):
-    left = sum(1 for token in tokens if token.type == 'LPAREN')
-    right = sum(1 for token in tokens if token.type == 'RPAREN')
-    if left > right:
-        errors.append(SyntaxError('Not enough closing brackets'))
-    if left < right:
-        errors.append(SyntaxError('Not enough opening brackets'))
+    stack = []
+    for token in tokens:
+        if token.type == 'LPAREN':
+            stack.append(token)
+        elif token.type == 'RPAREN':
+            if not stack:
+                errors.append(SyntaxError(
+                    f'RPAREN without corresponding LPAREN ' +
+                    f'(index {token.position})'))
+            else:
+                stack.pop()
+    if stack:
+        for token in stack:
+            errors.append(SyntaxError(
+                f'LPAREN without corresponding RPAREN ' +
+                f'(index {token.position})'))
     return errors
 
 def syntax_analysis(tokens):
