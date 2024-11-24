@@ -27,3 +27,16 @@ def print_tree_details(token, indent=0):
         print(f"{indent_str}Variable: {token.value}")
     elif token.type == 'OPERATOR':
         print(f"{indent_str}Operator: {token.value}")
+
+def print_gantt_chart(matrix):
+    print('Gantt Chart:')
+    x_labels = "   " + "  ".join(f"P{i+1}" for i in range(len(matrix[0])))
+    print(x_labels)
+    for i, row in enumerate(matrix, start=1):
+        row_str = "  ".join("██" if cell == 1 else "  " for cell in row)
+        print(f"{i:2} {row_str}")
+
+def print_system_performance_report(t, S, E):
+    print(f'Time consumed: {t}')
+    print(f'Acceleration factor: {round(S, 2)}')
+    print(f'Efficiency ratio: {round(E, 2)}')
