@@ -6,7 +6,4 @@ class Token:
         self.free = True
 
     def __repr__(self):
-        return (f'Token(type={self.type}, ' + 
-                f'value={self.value}, ' + 
-                f'position={self.position}, ' +
-                f'free={self.free})')
+        return f'Token({self.value})'

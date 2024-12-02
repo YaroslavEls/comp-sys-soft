@@ -1,3 +1,17 @@
+def print_equivalent_forms(equivalents, law, n):
+    title = 'Associative' if law == 0 else 'Commutative'
+    print(f'Equivalent forms (by {title} law) found: {len(equivalents)}')
+    separator = False
+    if n >= len(equivalents):
+        count = len(equivalents)
+    else:
+        count = n
+        separator = True
+    for i in range(count):
+        print('  ' + equivalents[i])
+    if separator:
+        print('  ...')
+
 def print_tree_schema(token, level=0):
     if level == 0:
         print('Parallel Tree Schema:')
@@ -30,11 +44,11 @@ def print_tree_details(token, indent=0):
 
 def print_gantt_chart(matrix):
     print('Gantt Chart:')
-    x_labels = "   " + "  ".join(f"P{i+1}" for i in range(len(matrix[0])))
+    x_labels = "    " + "  ".join(f"P{i+1}" for i in range(len(matrix[0])))
     print(x_labels)
     for i, row in enumerate(matrix, start=1):
         row_str = "  ".join("██" if cell == 1 else "  " for cell in row)
-        print(f"{i:2} {row_str}")
+        print(f"{i:3} {row_str}")
 
 def print_system_performance_report(t, S, E):
     print(f'Time consumed: {t}')
